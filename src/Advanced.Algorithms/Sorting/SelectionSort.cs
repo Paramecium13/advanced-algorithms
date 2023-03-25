@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A selection sort implementation.
 /// </summary>
-public class SelectionSort<T> where T : IComparable
+public static class SelectionSort<T> where T : IComparable
 {
     /// <summary>
     ///     Time complexity: O(n^2).
@@ -21,9 +21,7 @@ public class SelectionSort<T> where T : IComparable
         {
             if (comparer.Compare(array[j], array[i]) >= 0) continue;
 
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
+            (array[i], array[j]) = (array[j], array[i]);
         }
 
         return array;

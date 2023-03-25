@@ -6,12 +6,12 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A bubble sort implementation.
 /// </summary>
-public class BubbleSort<T> where T : IComparable
+public static class BubbleSort
 {
     /// <summary>
     ///     Time complexity: O(n^2).
     /// </summary>
-    public static T[] Sort(T[] array, SortDirection sortDirection = SortDirection.Ascending)
+    public static T[] Sort<T>(T[] array, SortDirection sortDirection = SortDirection.Ascending) where T : IComparable
     {
         var comparer = new CustomComparer<T>(sortDirection, Comparer<T>.Default);
         var swapped = true;
@@ -24,9 +24,7 @@ public class BubbleSort<T> where T : IComparable
                 //compare adjacent elements 
                 if (comparer.Compare(array[i], array[i + 1]) > 0)
                 {
-                    var temp = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = temp;
+                    (array[i], array[i + 1]) = (array[i + 1], array[i]);
                     swapped = true;
                 }
         }

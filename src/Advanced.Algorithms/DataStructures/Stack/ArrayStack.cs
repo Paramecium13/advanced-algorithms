@@ -34,7 +34,7 @@ internal class ArrayStack<T> : IStack<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return list.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

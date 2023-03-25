@@ -7,12 +7,12 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     Find Toplogical order of a graph using Kahn's algorithm.
 /// </summary>
-public class KahnsTopSort<T>
+public static class KahnsTopSort
 {
     /// <summary>
     ///     Returns the vertices in Topologically Sorted Order.
     /// </summary>
-    public List<T> GetTopSort(IDiGraph<T> graph)
+    public static T[] GetTopSort<T>(this IDiGraph<T> graph)
     {
         var inEdgeMap = new Dictionary<T, int>();
 
@@ -29,7 +29,7 @@ public class KahnsTopSort<T>
         //no vertices with zero number of in edges
         if (kahnQueue.Count == 0) throw new Exception("Graph has a cycle.");
 
-        var result = new List<T>();
+        var result = new List<T>(graph.VerticesCount);
 
         var visitCount = 0;
         //until queue is empty
@@ -54,6 +54,6 @@ public class KahnsTopSort<T>
             visitCount++;
         }
 
-        return result;
+        return result.ToArray();
     }
 }

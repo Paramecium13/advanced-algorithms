@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.Search;
 /// <summary>
 ///     A boyer-moore majority finder algorithm implementation.
 /// </summary>
-public class BoyerMoore<T> where T : IComparable
+public static class BoyerMoore<T> where T : IComparable
 {
     public static T FindMajority(IEnumerable<T> input)
     {

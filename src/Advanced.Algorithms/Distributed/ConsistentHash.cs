@@ -98,7 +98,7 @@ public class ConsistentHash<T>
 /// <summary>
 ///     Adapted from https://github.com/wsq003/consistent-hash/blob/master/ConsistentHash.cs
 /// </summary>
-internal class MurmurHash2
+internal static class MurmurHash2
 {
     private const uint M = 0x5bd1e995;
     private const int R = 24;

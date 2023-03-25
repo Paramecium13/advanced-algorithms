@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A counting sort implementation.
 /// </summary>
-public class CountingSort
+public static class CountingSort
 {
     /// <summary>
     ///     Sort given integers.

@@ -190,19 +190,19 @@ public class TreapTree<T> : IEnumerable<T> where T : IComparable
             }
 
             //node is a leaf node
-            if (node != null && node.IsLeaf)
+            if (node is {IsLeaf: true})
             {
                 DeleteLeaf(node);
             }
             else
             {
                 //case one - right tree is null (move sub tree up)
-                if (node?.Left != null && node.Right == null)
+                if (node is {Left: { }, Right: null})
                 {
                     DeleteLeftNode(node);
                 }
                 //case two - left tree is null  (move sub tree up)
-                else if (node?.Right != null && node.Left == null)
+                else if (node is {Right: { }, Left: null})
                 {
                     DeleteRightNode(node);
                 }

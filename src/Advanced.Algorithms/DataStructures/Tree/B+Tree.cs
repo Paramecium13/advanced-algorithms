@@ -25,7 +25,7 @@ public class BpTree<T> : IEnumerable<T> where T : IComparable
 
     public BpTree(int maxKeysPerNode = 3)
     {
-        if (maxKeysPerNode < 3) throw new Exception("Max keys per node should be atleast 3.");
+        if (maxKeysPerNode < 3) throw new Exception("Max keys per node should be at least 3.");
 
         this.maxKeysPerNode = maxKeysPerNode;
         minKeysPerNode = maxKeysPerNode / 2;
@@ -905,7 +905,7 @@ internal class BpTreeEnumerator<T> : IEnumerator<T> where T : IComparable
 
         current = asc ? current.Next : current.Prev;
 
-        var canMove = current != null && current.KeyCount > 0;
+        var canMove = current is {KeyCount: > 0};
         if (canMove) index = asc ? 0 : current.KeyCount - 1;
 
         return canMove;

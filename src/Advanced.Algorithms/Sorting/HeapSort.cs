@@ -22,7 +22,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A heap sort implementation.
 /// </summary>
-public class HeapSort<T> where T : IComparable
+public static class HeapSort<T> where T : IComparable
 {
     /// <summary>
     ///     Time complexity: O(nlog(n)).

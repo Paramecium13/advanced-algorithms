@@ -34,7 +34,7 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
         if (initial != null)
         {
             var items = initial as T[] ?? initial.ToArray();
-            var initArray = new T[items.Count()];
+            var initArray = new T[items.Length];
 
             var i = 0;
             foreach (var item in items)
@@ -89,9 +89,7 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
 
         if (minMax != -1 && comparer.Compare(initial[minMax], initial[parent]) < 0)
         {
-            var temp = initial[minMax];
-            initial[minMax] = initial[parent];
-            initial[parent] = temp;
+            (initial[minMax], initial[parent]) = (initial[parent], initial[minMax]);
 
             BulkInitRecursive(minMax, initial);
         }
@@ -111,9 +109,7 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
         for (var i = Count; i > 0; i = (i - 1) / k)
             if (comparer.Compare(heapArray[i], heapArray[(i - 1) / k]) < 0)
             {
-                var temp = heapArray[(i - 1) / k];
-                heapArray[(i - 1) / k] = heapArray[i];
-                heapArray[i] = temp;
+                (heapArray[(i - 1) / k], heapArray[i]) = (heapArray[i], heapArray[(i - 1) / k]);
             }
             else
             {
@@ -147,9 +143,7 @@ public class DaryHeap<T> : IEnumerable<T> where T : IComparable
             if (minMaxChildIndex != -1 &&
                 comparer.Compare(heapArray[currentParent], heapArray[minMaxChildIndex]) > 0)
             {
-                var tmp = heapArray[minMaxChildIndex];
-                heapArray[minMaxChildIndex] = heapArray[currentParent];
-                heapArray[currentParent] = tmp;
+                (heapArray[minMaxChildIndex], heapArray[currentParent]) = (heapArray[currentParent], heapArray[minMaxChildIndex]);
                 swapped = true;
             }
 

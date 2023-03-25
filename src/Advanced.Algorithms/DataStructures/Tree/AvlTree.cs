@@ -561,9 +561,7 @@ public class AvlTree<T> : IEnumerable<T> where T : IComparable
 
         if (node1 == null || node2 == null) throw new Exception("Value1, Value2 or both was not found in this BST.");
 
-        var tmp = node1.Value;
-        node1.Value = node2.Value;
-        node2.Value = tmp;
+        (node1.Value, node2.Value) = (node2.Value, node1.Value);
 
         if (nodeLookUp != null)
         {

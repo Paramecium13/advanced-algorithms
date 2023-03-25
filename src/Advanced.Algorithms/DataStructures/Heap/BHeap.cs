@@ -46,7 +46,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
         if (initial != null)
         {
             var items = initial as T[] ?? initial.ToArray();
-            var initArray = new T[items.Count()];
+            var initArray = new T[items.Length];
 
             var i = 0;
             foreach (var item in items)
@@ -106,9 +106,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
 
         if (minMax != -1 && comparer.Compare(initial[minMax], initial[parent]) < 0)
         {
-            var temp = initial[minMax];
-            initial[minMax] = initial[parent];
-            initial[parent] = temp;
+            (initial[minMax], initial[parent]) = (initial[parent], initial[minMax]);
 
             //if min is child then drill down child
             BulkInitRecursive(minMax, initial);
@@ -127,9 +125,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
         for (var i = Count; i > 0; i = (i - 1) / 2)
             if (comparer.Compare(heapArray[i], heapArray[(i - 1) / 2]) < 0)
             {
-                var temp = heapArray[(i - 1) / 2];
-                heapArray[(i - 1) / 2] = heapArray[i];
-                heapArray[i] = temp;
+                (heapArray[(i - 1) / 2], heapArray[i]) = (heapArray[i], heapArray[(i - 1) / 2]);
             }
             else
             {
@@ -213,9 +209,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
 
                 if (comparer.Compare(heapArray[minMaxChildIndex], parent) < 0)
                 {
-                    var temp = heapArray[parentIndex];
-                    heapArray[parentIndex] = heapArray[minMaxChildIndex];
-                    heapArray[minMaxChildIndex] = temp;
+                    (heapArray[parentIndex], heapArray[minMaxChildIndex]) = (heapArray[minMaxChildIndex], heapArray[parentIndex]);
 
                     if (leftIsMinMax)
                         parentIndex = leftIndex;
@@ -231,9 +225,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
             {
                 if (comparer.Compare(heapArray[leftIndex], parent) < 0)
                 {
-                    var temp = heapArray[parentIndex];
-                    heapArray[parentIndex] = heapArray[leftIndex];
-                    heapArray[leftIndex] = temp;
+                    (heapArray[parentIndex], heapArray[leftIndex]) = (heapArray[leftIndex], heapArray[parentIndex]);
 
                     parentIndex = leftIndex;
                 }
@@ -246,9 +238,7 @@ public class BHeap<T> : IEnumerable<T> where T : IComparable
             {
                 if (comparer.Compare(heapArray[rightIndex], parent) < 0)
                 {
-                    var temp = heapArray[parentIndex];
-                    heapArray[parentIndex] = heapArray[rightIndex];
-                    heapArray[rightIndex] = temp;
+                    (heapArray[parentIndex], heapArray[rightIndex]) = (heapArray[rightIndex], heapArray[parentIndex]);
 
                     parentIndex = rightIndex;
                 }

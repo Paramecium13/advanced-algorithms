@@ -10,6 +10,9 @@ public class Queue<T> : IEnumerable<T>
 {
     private readonly IQueue<T> queue;
 
+    /// <summary>
+    /// Constructor.
+    /// </summary>
     /// <param name="type">The queue implementation type.</param>
     public Queue(QueueType type = QueueType.Array)
     {
@@ -26,7 +29,7 @@ public class Queue<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return queue.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

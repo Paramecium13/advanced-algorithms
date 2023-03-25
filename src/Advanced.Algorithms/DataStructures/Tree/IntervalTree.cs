@@ -330,9 +330,7 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
     {
         if (value.Start.CompareTo(value.End[0]) <= 0) return;
 
-        var tmp = value.End[0];
-        value.End[0] = value.Start;
-        value.Start = tmp;
+        (value.End[0], value.Start) = (value.Start, value.End[0]);
     }
 
     /// <summary>
@@ -366,7 +364,7 @@ internal class OneDimentionalIntervalTree<T> where T : IComparable
     private List<OneDimentionalInterval<T>> GetOverlaps(RedBlackTreeNode<OneDimentionalInterval<T>> current,
         OneDimentionalInterval<T> searchInterval, List<OneDimentionalInterval<T>> result = null)
     {
-        if (result == null) result = new List<OneDimentionalInterval<T>>();
+        result ??= new List<OneDimentionalInterval<T>>();
 
         if (current == null) return result;
 

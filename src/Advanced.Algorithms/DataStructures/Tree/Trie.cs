@@ -224,7 +224,7 @@ internal class TrieEnumerator<T> : IEnumerator<T[]>
     {
         if (root == null) return false;
 
-        if (progress == null) progress = new Stack<TrieNode<T>>(root.Children.Select(x => x.Value));
+        progress ??= new Stack<TrieNode<T>>(root.Children.Select(x => x.Value));
 
         while (progress.Count > 0)
         {

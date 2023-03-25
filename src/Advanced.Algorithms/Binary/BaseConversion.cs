@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Binary;
 /// <summary>
 ///     Base conversion implementation.
 /// </summary>
-public class BaseConversion
+public static class BaseConversion
 {
     /// <summary>
     ///     Converts base of given number to the target base.

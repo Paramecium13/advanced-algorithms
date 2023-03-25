@@ -28,14 +28,14 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var result = algorithm.GetMinVertexCover(graph);
 
-            Assert.IsTrue(result.Count() <= 2);
+            Assert.IsTrue(result.Count <= 2);
 
             graph.RemoveEdge(0, 4);
 
             graph.AddEdge(1, 4);
 
             result = algorithm.GetMinVertexCover(graph);
-            Assert.IsTrue(result.Count() <= 4);
+            Assert.IsTrue(result.Count <= 4);
         }
 
         [TestMethod]
@@ -58,14 +58,14 @@ namespace Advanced.Algorithms.Tests.Graph
 
             var result = algorithm.GetMinVertexCover(graph);
 
-            Assert.IsTrue(result.Count() <= 2);
+            Assert.IsTrue(result.Count <= 2);
 
             graph.RemoveEdge(0, 4);
 
             graph.AddEdge(1, 4);
 
             result = algorithm.GetMinVertexCover(graph);
-            Assert.IsTrue(result.Count() <= 4);
+            Assert.IsTrue(result.Count <= 4);
         }
     }
 }

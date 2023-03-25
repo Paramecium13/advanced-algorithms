@@ -46,7 +46,7 @@ public class TernarySearchTree<T> : IEnumerable<T[]> where T : IComparable
         T[] entry, int currentIndex)
     {
         //create new node if empty
-        if (currentNode == null) currentNode = new TernarySearchTreeNode<T>(parent, entry[currentIndex]);
+        currentNode ??= new TernarySearchTreeNode<T>(parent, entry[currentIndex]);
 
         var compareResult = currentNode.Value.CompareTo(entry[currentIndex]);
 
@@ -333,7 +333,7 @@ internal class TernarySearchTreeEnumerator<T> : IEnumerator<T[]> where T : IComp
     {
         if (root == null) return false;
 
-        if (progress == null) progress = new Stack<TernarySearchTreeNode<T>>(new[] { root });
+        progress ??= new Stack<TernarySearchTreeNode<T>>(new[] {root});
 
         while (progress.Count > 0)
         {

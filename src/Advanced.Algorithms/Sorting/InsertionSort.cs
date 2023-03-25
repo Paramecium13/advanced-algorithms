@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     An insertion sort implementation.
 /// </summary>
-public class InsertionSort<T> where T : IComparable
+public static class InsertionSort<T> where T : IComparable
 {
     /// <summary>
     ///     Time complexity: O(n^2).
@@ -19,9 +19,7 @@ public class InsertionSort<T> where T : IComparable
         for (var j = i + 1; j > 0; j--)
             if (comparer.Compare(array[j], array[j - 1]) < 0)
             {
-                var temp = array[j - 1];
-                array[j - 1] = array[j];
-                array[j] = temp;
+                (array[j - 1], array[j]) = (array[j], array[j - 1]);
             }
             else
             {

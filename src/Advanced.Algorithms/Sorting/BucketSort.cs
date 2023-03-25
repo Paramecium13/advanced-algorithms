@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A bucket sort implementation.
 /// </summary>
-public class BucketSort
+public static class BucketSort
 {
     /// <summary>
     ///     Sort given integers using bucket sort with merge sort as sub sort.

@@ -23,17 +23,15 @@ public class BellmanFordShortestPath<T, TW> where TW : IComparable
         T source, T destination)
     {
         //regular argument checks
-        if (graph == null || graph.GetVertex(source) == null
-                          || graph.GetVertex(destination) == null)
+        if (graph?.GetVertex(source) == null || graph.GetVertex(destination) == null)
             throw new ArgumentException("Empty Graph or invalid source/destination.");
 
         if (@operator == null)
             throw new ArgumentException("Provide an operator implementation for generic type W during initialization.");
 
-        if (!graph.IsWeightedGraph)
-            if (@operator.DefaultValue.GetType() != typeof(int))
-                throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
-                                            "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
+        if (!graph.IsWeightedGraph && @operator.DefaultValue.GetType() != typeof(int))
+            throw new ArgumentException("Edges of unweighted graphs are assigned an imaginary weight of one (1)." +
+                                        "Provide an appropriate IShortestPathOperators<int> operator implementation during initialization.");
 
         var progress = new Dictionary<T, TW>();
         var parentMap = new Dictionary<T, T>();

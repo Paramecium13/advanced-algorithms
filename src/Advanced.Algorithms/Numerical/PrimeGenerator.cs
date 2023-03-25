@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Numerical;
 /// <summary>
 ///     A prime number generation algorithm using Sieve of Eratosthenes.
 /// </summary>
-public class PrimeGenerator
+public static class PrimeGenerator
 {
     public static List<int> GetAllPrimes(int max)
     {

@@ -7,7 +7,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A radix sort implementation.
 /// </summary>
-public class RadixSort
+public static class RadixSort
 {
     public static int[] Sort(int[] array, SortDirection sortDirection = SortDirection.Ascending)
     {
@@ -29,7 +29,7 @@ public class RadixSort
             {
                 var bucketIndex = array[i] / @base % 10;
 
-                if (buckets[bucketIndex] == null) buckets[bucketIndex] = new List<int>();
+                buckets[bucketIndex] ??= new List<int>();
 
                 buckets[bucketIndex].Add(array[i]);
             }

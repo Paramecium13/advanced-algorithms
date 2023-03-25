@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Geometry;
 /// <summary>
 ///     Line intersection computer.
 /// </summary>
-public class LineIntersection
+public static class LineIntersection
 {
     /// <summary>
     ///     Returns Point of intersection if do intersect otherwise default Point (null).
@@ -25,17 +25,13 @@ public class LineIntersection
         //make lineA as left
         if (lineA.Left.X.CompareTo(lineB.Left.X) > 0)
         {
-            var tmp = lineA;
-            lineA = lineB;
-            lineB = tmp;
+            (lineA, lineB) = (lineB, lineA);
         }
         else if (lineA.Left.X.CompareTo(lineB.Left.X) == 0)
         {
             if (lineA.Left.Y.CompareTo(lineB.Left.Y) > 0)
             {
-                var tmp = lineA;
-                lineA = lineB;
-                lineB = tmp;
+                (lineA, lineB) = (lineB, lineA);
             }
         }
 

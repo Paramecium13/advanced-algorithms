@@ -5,7 +5,7 @@ namespace Advanced.Algorithms.Geometry;
 /// <summary>
 ///     Convex hull using jarvis's algorithm.
 /// </summary>
-public class ConvexHull
+public static class ConvexHull
 {
     public static List<int[]> Find(List<int[]> points)
     {

@@ -27,7 +27,7 @@ internal class LinkedListQueue<T> : IQueue<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return GetEnumerator();
+        return list.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()

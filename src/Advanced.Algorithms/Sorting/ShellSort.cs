@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A shell sort implementation.
 /// </summary>
-public class ShellSort<T> where T : IComparable
+public static class ShellSort<T> where T : IComparable
 {
     public static T[] Sort(T[] array, SortDirection sortDirection = SortDirection.Ascending)
     {
@@ -38,8 +38,6 @@ public class ShellSort<T> where T : IComparable
 
     private static void Swap(T[] array, int i, int j)
     {
-        var tmp = array[i];
-        array[i] = array[j];
-        array[j] = tmp;
+        (array[i], array[j]) = (array[j], array[i]);
     }
 }

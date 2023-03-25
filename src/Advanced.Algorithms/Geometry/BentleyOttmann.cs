@@ -191,9 +191,7 @@ public class BentleyOttmann
 
         if (node1 == null || node2 == null) throw new Exception("Value1, Value2 or both was not found in this BST.");
 
-        var tmp = node1.Value;
-        node1.Value = node2.Value;
-        node2.Value = tmp;
+        (node1.Value, node2.Value) = (node2.Value, node1.Value);
 
         currentlyTrackedLines.NodeLookUp[node1.Value] = node1;
         currentlyTrackedLines.NodeLookUp[node2.Value] = node2;
@@ -284,7 +282,7 @@ internal class Event : Point, IComparable
     {
         if (Equals(that)) return 0;
 
-        var thatEvent = that as Event;
+        var thatEvent = (Event) that;
 
         var line1 = Segment;
         var line2 = thatEvent.Segment;
@@ -356,7 +354,7 @@ internal class Event : Point, IComparable
     {
         if (that == this) return true;
 
-        var thatEvent = that as Event;
+        var thatEvent = (Event) that;
 
         if (Type != EventType.Intersection && thatEvent.Type == EventType.Intersection
             || Type == EventType.Intersection && thatEvent.Type != EventType.Intersection)

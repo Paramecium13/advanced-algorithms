@@ -6,12 +6,12 @@ namespace Advanced.Algorithms.Graph;
 /// <summary>
 ///     Cycle detection using Depth First Search.
 /// </summary>
-public class CycleDetector<T>
+public static class CycleDetector
 {
     /// <summary>
     ///     Returns true if a cycle exists
     /// </summary>
-    public bool HasCycle(IDiGraph<T> graph)
+    public static bool HasCycle<T>(this IDiGraph<T> graph)
     {
         var visiting = new HashSet<T>();
         var visited = new HashSet<T>();
@@ -24,7 +24,7 @@ public class CycleDetector<T>
         return false;
     }
 
-    private bool Dfs(IDiGraphVertex<T> current,
+    private static bool Dfs<T>(IDiGraphVertex<T> current,
         HashSet<T> visited, HashSet<T> visiting)
     {
         visiting.Add(current.Key);

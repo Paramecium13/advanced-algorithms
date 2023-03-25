@@ -16,15 +16,9 @@ public class PriorityQueue<T> : IEnumerable<T> where T : IComparable
         heap = new BHeap<T>(sortDirection);
     }
 
-    public IEnumerator<T> GetEnumerator()
-    {
-        return GetEnumerator();
-    }
+    public IEnumerator<T> GetEnumerator() => heap.GetEnumerator();
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return heap.GetEnumerator();
-    }
+    IEnumerator IEnumerable.GetEnumerator() => heap.GetEnumerator();
 
     /// <summary>
     ///     Time complexity:O(log(n)).

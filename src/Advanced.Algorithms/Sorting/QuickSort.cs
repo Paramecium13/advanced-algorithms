@@ -6,7 +6,7 @@ namespace Advanced.Algorithms.Sorting;
 /// <summary>
 ///     A quick sort implementation.
 /// </summary>
-public class QuickSort<T> where T : IComparable
+public static class QuickSort<T> where T : IComparable
 {
     /// <summary>
     ///     Time complexity: O(n^2)
@@ -41,9 +41,7 @@ public class QuickSort<T> where T : IComparable
             {
                 if (comparer.Compare(pivot, array[j]) <= 0 && j != endIndex) continue;
 
-                var temp = array[wall];
-                array[wall] = array[j];
-                array[j] = temp;
+                (array[wall], array[j]) = (array[j], array[wall]);
                 //increment to exclude the minimum element in subsequent comparisons
                 wall++;
             }
