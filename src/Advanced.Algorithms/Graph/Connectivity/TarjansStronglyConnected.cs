@@ -21,7 +21,7 @@ public class TarjansStronglyConnected<T>
         var pathStack = new Stack<T>();
         var pathStackMap = new HashSet<T>();
         var discoveryTime = 0;
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
             if (!discoveryTimeMap.ContainsKey(vertex.Key))
                 Dfs(vertex,
                     result,

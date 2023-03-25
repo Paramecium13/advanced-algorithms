@@ -36,7 +36,7 @@ public class BellmanFordShortestPath<T, TW> where TW : IComparable
         var progress = new Dictionary<T, TW>();
         var parentMap = new Dictionary<T, T>();
 
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
         {
             parentMap.Add(vertex.Key, default);
             progress.Add(vertex.Key, @operator.MaxValue);
@@ -51,7 +51,7 @@ public class BellmanFordShortestPath<T, TW> where TW : IComparable
         {
             updated = false;
 
-            foreach (var vertex in graph.VerticesAsEnumberable)
+            foreach (var vertex in graph.VerticesAsEnumerable)
             {
                 //skip not discovered nodes
                 if (progress[vertex.Key].Equals(@operator.MaxValue)) continue;

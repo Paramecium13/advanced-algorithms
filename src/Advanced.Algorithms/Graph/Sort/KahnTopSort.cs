@@ -18,7 +18,7 @@ public static class KahnsTopSort
 
         var kahnQueue = new Queue<T>();
 
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
         {
             inEdgeMap.Add(vertex.Key, vertex.InEdgeCount);
 

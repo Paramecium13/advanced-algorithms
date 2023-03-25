@@ -11,7 +11,7 @@ public interface IDiGraph<T>
 {
     bool IsWeightedGraph { get; }
     IDiGraphVertex<T> ReferenceVertex { get; }
-    IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable { get; }
+    IEnumerable<IDiGraphVertex<T>> VerticesAsEnumerable { get; }
     int VerticesCount { get; }
 
     bool ContainsVertex(T value);

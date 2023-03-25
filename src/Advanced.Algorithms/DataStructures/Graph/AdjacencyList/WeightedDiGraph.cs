@@ -68,7 +68,7 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         return Clone();
     }
 
-    IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => Vertices.Select(x => x.Value);
+    IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumerable => Vertices.Select(x => x.Value);
 
     public IEnumerator GetEnumerator()
     {

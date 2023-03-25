@@ -17,7 +17,7 @@ public static class DepthFirstTopSort
 		var visited = new HashSet<T>();
 
 		//we need a loop so that we can reach all vertices
-		foreach (var vertex in graph.VerticesAsEnumberable)
+		foreach (var vertex in graph.VerticesAsEnumerable)
 		{
 			if (!visited.Contains(vertex.Key))
 			{

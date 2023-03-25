@@ -84,9 +84,9 @@ public class JohnsonsShortestPath<T, TW> where TW : IComparable
     {
         var newGraph = new WeightedDiGraph<T, TW>();
 
-        foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in graph.VerticesAsEnumerable) newGraph.AddVertex(vertex.Key);
 
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
         foreach (var edge in vertex.OutEdges)
             newGraph.AddEdge(vertex.Key, edge.TargetVertexKey, edge.Weight<TW>());
 

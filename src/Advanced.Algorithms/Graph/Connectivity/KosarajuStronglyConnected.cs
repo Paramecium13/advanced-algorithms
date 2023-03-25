@@ -19,7 +19,7 @@ public class KosarajuStronglyConnected<T>
         var finishStack = new Stack<T>();
 
         //step one - create DFS finish visit stack
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
             if (!visited.Contains(vertex.Key))
                 KosarajuStep1(vertex, visited, finishStack);
 
@@ -84,9 +84,9 @@ public class KosarajuStronglyConnected<T>
     {
         var newGraph = new DiGraph<T>();
 
-        foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in graph.VerticesAsEnumerable) newGraph.AddVertex(vertex.Key);
 
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
         foreach (var edge in vertex.OutEdges)
             //reverse edge
             newGraph.AddEdge(edge.TargetVertexKey, vertex.Key);

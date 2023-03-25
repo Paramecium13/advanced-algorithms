@@ -16,7 +16,7 @@ public static class CycleDetector
         var visiting = new HashSet<T>();
         var visited = new HashSet<T>();
 
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
             if (!visited.Contains(vertex.Key))
                 if (Dfs(vertex, visited, visiting))
                     return true;

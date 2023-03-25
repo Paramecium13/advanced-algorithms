@@ -47,7 +47,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         return Clone();
     }
 
-    IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumberable => Vertices.Select(x => x.Value);
+    IEnumerable<IDiGraphVertex<T>> IDiGraph<T>.VerticesAsEnumerable => Vertices.Select(x => x.Value);
 
     public IEnumerator GetEnumerator()
     {

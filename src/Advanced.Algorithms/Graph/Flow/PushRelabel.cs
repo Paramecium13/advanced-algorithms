@@ -161,10 +161,10 @@ public class PushRelabelMaxFlow<T, TW> where TW : IComparable
         var newGraph = new WeightedDiGraph<T, TW>();
 
         //clone graph vertices
-        foreach (var vertex in graph.VerticesAsEnumberable) newGraph.AddVertex(vertex.Key);
+        foreach (var vertex in graph.VerticesAsEnumerable) newGraph.AddVertex(vertex.Key);
 
         //clone edges
-        foreach (var vertex in graph.VerticesAsEnumberable)
+        foreach (var vertex in graph.VerticesAsEnumerable)
             //Use either OutEdges or InEdges for cloning
             //here we use OutEdges
         foreach (var edge in vertex.OutEdges)

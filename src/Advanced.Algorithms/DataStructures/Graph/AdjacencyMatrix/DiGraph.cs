@@ -36,7 +36,7 @@ public class DiGraph<T> : IGraph<T>, IDiGraph<T>, IEnumerable<T>
         return vertexObjects[key];
     }
 
-    public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable => GetVerticesAsEnumerable();
+    public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumerable => GetVerticesAsEnumerable();
 
     IDiGraph<T> IDiGraph<T>.Clone()
     {

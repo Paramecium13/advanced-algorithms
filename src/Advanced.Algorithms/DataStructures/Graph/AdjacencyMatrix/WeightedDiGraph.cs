@@ -52,7 +52,7 @@ public class WeightedDiGraph<T, TW> : IDiGraph<T>, IGraph<T>, IEnumerable<T> whe
         return false;
     }
 
-    public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumberable => GetVerticesAsEnumerable();
+    public IEnumerable<IDiGraphVertex<T>> VerticesAsEnumerable => GetVerticesAsEnumerable();
 
     public bool ContainsVertex(T value)
     {
